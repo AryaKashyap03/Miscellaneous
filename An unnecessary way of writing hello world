@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstdlib>
+#include<ctime>
+#include<cstring>
+using namespace std;
+int main() {
+    int index=0;
+    string n;
+    char arr1[] = {' ','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+               'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    cout<<"Enter the string you want to bruteforce: ";
+    getline(cin,n);
+    char target[n.length()+1];
+    strcpy(target,n.c_str());
+    char arr2[n.length() + 1] = {0};
+    int count=0;
+    for(int i=0;i<strlen(target);i++){
+        for(int j=0;j<strlen(arr1);j++){
+        count++;
+        cout<<arr1[j]<<endl;
+        if(arr1[j]==target[i]){
+            arr2[i]=arr1[j];
+            for(int k=0;k<i+1;k++){
+                cout<<arr2[k];
+            }
+            cout<<endl;
+            break;
+        }
+        }
+    }
+cout<<"This took "<<count<<" guesses";
+}
